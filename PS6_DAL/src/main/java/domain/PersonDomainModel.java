@@ -2,6 +2,9 @@ package domain;
 
 
 import java.time.LocalDate;
+import java.time.temporal.TemporalField;
+import java.util.Date;
+import java.util.UUID;
 
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.ObjectProperty;
@@ -15,14 +18,15 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import util.LocalDateAdapter;
 
 public class PersonDomainModel {
-
+	
     private  StringProperty firstName;
     private  StringProperty lastName;
     private  StringProperty street;
     private  IntegerProperty postalCode;
     private  StringProperty city;
     private  ObjectProperty<LocalDate> birthday;
-
+    private UUID PersonID;
+    
     /**
      * Default constructor.
      */
@@ -92,12 +96,27 @@ public class PersonDomainModel {
     public LocalDate getBirthday() {
         return birthday.get();
     }
-
-    public void setBirthday(LocalDate birthday) {
-        this.birthday.set(birthday);
+	
+    public void getBirthday(LocalDate date) {
+		this.birthday.get();
+	
+	}
+    public void setBirthday(LocalDate date) {
+        this.birthday.set(date);
     }
 
     public ObjectProperty<LocalDate> birthdayProperty() {
         return birthday;
     }
-}
+
+	public UUID getPersonID() {
+		return PersonID;
+	}
+	public void setPersonID(UUID personID){
+		PersonID = personID;
+	}
+
+
+
+
+	}
